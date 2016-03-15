@@ -1,7 +1,7 @@
 {
   "name": "griphos",
   "version": "1.0.0",
-  "description": "A photography portfolio theme",
+  "description": "A photography portfolio theme made with Bulma",
   "main": "gulpfile.js",
   "dependencies": {
     "bulma": "^0.0.14",
