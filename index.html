@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Griphos</title>
+    <!-- For HTML5 pushstate -->
+    <base href="/">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <meta charset="utf-8">
+    <meta name="description" content="A lightweight responsive photographer grid portfolio">
+    <meta name="robots" content="index, follow">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="Griphos">
+    <meta property="og:site_name" content="Griphos">
+    <meta property="og:url" content="http://">
+    <meta property="og:description" content="A lightweight responsive photographer grid portfolio">
+    <meta property="og:image" content="http://">
+    <meta property="fb:app_id" content="">
+    <meta property="og:type" content="website">
+    <!-- Twitter Meta -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@yourtwitterusername"/>
+    <meta name="twitter:title" content="Griphos"/>
+    <meta name="twitter:description" content="A lightweight responsive photographer grid portfolio"/>
+    <meta name="twitter:image" content="http://"/>
+    <!-- Google+ Meta -->
+    <meta itemprop="name" content="Home">
+    <meta itemprop="description" content="A lightweight responsive photographer grid portfolio">
+    <meta itemprop="image" content="http://">
+
+</head>
+
+<body ng-app="griphos" ng-controller="mainController">
+    <header class="header">
+        <div class="container">
+            <!-- Left side -->
+            <div class="header-left">
+                <a class="header-item" href="">
+                    <h1 class="title">Griphos</h1>
+                </a>
+            </div>
+
+            <!-- Hamburger menu (on mobile) -->
+            <span class="header-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+
+            <!-- Right side -->
+            <div class="header-right header-menu">
+                <span class="header-item">
+                    <a href="about">About</a>
+                </span>
+                <span class="header-item">
+                    <a href="contacts">Contacts</a>
+                </span>
+                <span class="header-item">
+                    <span class="icon">
+                        <a href="#">
+                            <i class="fa fa-500px"></i>
+                        </a>
+                    </span>
+                </span>
+                <span class="header-item">
+                    <span class="icon">
+                        <a href="#">
+                            <i class="fa fa-flickr"></i>
+                        </a>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Three "featured" photos (always visible) -->
+    <div class="container is-fluid featured">
+        <div class="columns is-gapless">
+            <div class="column is-6-tablet is-4-desktop">
+                <p class="image is-16by9">
+                    <img ng-click="enlargePhoto($event)" class="photo fadein" src="images/demo1.jpg" alt="Demo1">
+                </p>
+            </div>
+            <div class="column is-6-tablet is-4-desktop" ng-class="{'is-hidden-mobile' : notGrid}">
+                <p class="image is-16by9">
+                    <img ng-click="enlargePhoto($event)" class="photo fadein" src="images/demo2.jpg" alt="Demo2">
+                </p>
+            </div>
+            <div class="column is-6-tablet is-4-desktop" ng-class="{'is-hidden-mobile' : notGrid}">
+                <p class="image is-16by9">
+                    <img ng-click="enlargePhoto($event)" class="photo fadein" src="images/demo3.jpg" alt="Demo3">
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="container is-fluid" ng-view></div>
+
+    <!-- Big content modal -->
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <p class="image is-4by3">
+                <img ng-src="{{ selectedPhoto }}" alt="">
+            </p>
+        </div>
+        <button class="modal-close"></button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="vendor/js/angular.min.js"></script>
+    <script src="vendor/js/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/mainController.js"></script>
+    <script src="js/directives.js"></script>
+</body>
+</html>

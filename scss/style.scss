@@ -1,0 +1,50 @@
+@import "node_modules/bulma/bulma/utilities/utilities";
+@import "node_modules/bulma/bulma/config/variables";
+
+// Customization
+
+@import "node_modules/bulma/bulma/config/generated-variables";
+
+// Customization
+$family-primary: 'Lato', sans-serif;
+
+@import "node_modules/bulma/bulma/base/base";
+@import "node_modules/bulma/bulma/elements/elements";
+@import "node_modules/bulma/bulma/components/components";
+@import "node_modules/bulma/bulma/layout/layout";
+
+
+.container {
+  &.is-fluid {
+    margin: 0;
+    &.featured {
+      padding-top: 50px;
+    }
+  }
+  .columns {
+    &.is-gapless {
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.photo {
+  cursor: pointer;
+  .fadein {
+    opacity: 0;
+    &.in {
+      opacity: 1;
+      transition: opacity .35s ease-in-out;
+      -moz-transition: opacity .35s ease-in-out;
+      -webkit-transition: opacity .35s ease-in-out;
+    }
+  }
+}
+
+
+.header {
+  position: fixed;
+  width: 100%;
+}
