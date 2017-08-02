@@ -4,8 +4,6 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var historyApiFallback = require('connect-history-api-fallback');
-var bower = require('main-bower-files');
-var bowerNormalizer = require('gulp-bower-normalize');
 var zip = require('gulp-zip');
 var fs = require('fs');
 var json = JSON.parse(fs.readFileSync('./package.json'));
@@ -34,30 +32,5 @@ gulp.task('sass', function() {
         .pipe(browserSync.stream());
 });
 
-// Extract vendor assets from bower folder
-gulp.task('normalize-vendor', function() {
-    return gulp.src(bower(), {base: './bower_components'})
-        .pipe(bowerNormalizer({
-            bowerJson: './bower.json',
-            flatten: true,
-        }))
-        .pipe(gulp.dest('./vendor'));
-});
-
-// Create a zip archive containing the project
-gulp.task('make-archive', function(){
-    return gulp.src([
-        'css/**/*',
-        'images/**/*',
-        'js/**/*',
-        'vendor/**/*',
-        '*.html'], {base: './'})
-        .pipe(zip(json.name + '_' + json.version + '.zip'))
-        .pipe(gulp.dest('dist'));
-});
-
-// Create a distribution file
-gulp.task('distribute', ['normalize-vendor', 'sass', 'make-archive']);
-
 // Main task for development
-gulp.task('default', ['normalize-vendor', 'serve']);
+gulp.task('default', ['sass', 'serve']);

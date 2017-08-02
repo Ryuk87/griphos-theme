@@ -1,9 +1,11 @@
 {
   "name": "griphos",
   "version": "1.0.0",
-  "description": "A photography portfolio theme made with Bulma",
+  "description": "A photography portfolio template made with Bulma",
   "main": "gulpfile.js",
   "dependencies": {
+    "angular": "^1.6.5",
+    "angular-route": "^1.6.5",
     "bulma": "^0.0.14",
     "connect-history-api-fallback": "^1.1.0",
     "gulp": "^3.9.1"
