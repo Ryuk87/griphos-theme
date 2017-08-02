@@ -1,6 +1,3 @@
 .DS_Store
-node_modules
-bower_components
-dist
-*.css
-.idea
+node_modules/
+.idea/
